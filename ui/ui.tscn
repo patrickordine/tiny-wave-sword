@@ -1,0 +1,165 @@
+[gd_scene load_steps=13 format=3 uid="uid://bbchfg1uv3137"]
+
+[ext_resource type="Texture2D" uid="uid://dogwmmxqd0wm3" path="res://addons/Tiny Swords (Update 010)/UI/Banners/Banner_Horizontal.png" id="1_6g47q"]
+[ext_resource type="Script" path="res://scripts/game_ui.gd" id="1_vj27e"]
+[ext_resource type="Texture2D" uid="uid://dmmrbkqmxhprt" path="res://addons/Tiny Swords (Update 010)/Resources/Resources/M_Idle_(NoShadow).png" id="3_88oue"]
+[ext_resource type="Texture2D" uid="uid://cdtrumrysyqrl" path="res://addons/Tiny Swords (Update 010)/UI/Icons/Pressed_01.png" id="4_aai40"]
+[ext_resource type="Texture2D" uid="uid://buig0oe63bspq" path="res://addons/Tiny Swords (Update 010)/Resources/Resources/G_Idle.png" id="4_gls3y"]
+
+[sub_resource type="SystemFont" id="SystemFont_wv1lh"]
+font_names = PackedStringArray("Tahoma")
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_si2sj"]
+font = SubResource("SystemFont_wv1lh")
+font_size = 32
+outline_size = 10
+outline_color = Color(0.20871, 0.20871, 0.20871, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dxrco"]
+texture = ExtResource("1_6g47q")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(32, 48, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tx7jf"]
+atlas = ExtResource("3_88oue")
+region = Rect2(40, 48, 56, 56)
+
+[sub_resource type="SystemFont" id="SystemFont_gx446"]
+font_names = PackedStringArray("Tahoma")
+font_weight = 999
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_7bv0g"]
+font = SubResource("SystemFont_gx446")
+font_size = 32
+font_color = Color(0.00184107, 0.00184107, 0.00184107, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eru6n"]
+atlas = ExtResource("4_gls3y")
+region = Rect2(48, 48, 48, 48)
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_vj27e")
+
+[node name="TimerLabel" type="Label" parent="."]
+unique_name_in_owner = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -39.0
+offset_top = 27.0
+offset_right = 40.0
+offset_bottom = 67.0
+grow_horizontal = 2
+text = "07:10"
+label_settings = SubResource("LabelSettings_si2sj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -301.0
+offset_top = 10.0
+offset_right = -275.0
+offset_bottom = 36.0
+grow_horizontal = 0
+scale = Vector2(5.60906, 1.55593)
+theme_override_styles/panel = SubResource("StyleBoxTexture_dxrco")
+
+[node name="MeatText" type="TextureRect" parent="Panel"]
+layout_mode = 1
+offset_left = 5.36171
+offset_top = -1.58432
+offset_right = 61.3617
+offset_bottom = 54.4157
+scale = Vector2(0.097, 0.4)
+texture = SubResource("AtlasTexture_tx7jf")
+
+[node name="MeatLabel" type="Label" parent="Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 10.7234
+offset_top = 2.53491
+offset_right = 141.723
+offset_bottom = 42.5349
+scale = Vector2(0.0895605, 0.347056)
+text = "50"
+label_settings = SubResource("LabelSettings_7bv0g")
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 161
+
+[node name="Panel3" type="Panel" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -453.0
+offset_top = 10.0
+offset_right = -427.0
+offset_bottom = 36.0
+grow_horizontal = 0
+scale = Vector2(5.60906, 1.55593)
+theme_override_styles/panel = SubResource("StyleBoxTexture_dxrco")
+
+[node name="Kills" type="TextureRect" parent="Panel3"]
+modulate = Color(0.293103, 0, 0.143313, 1)
+layout_mode = 1
+offset_left = 5.36171
+offset_top = -1.58432
+offset_right = 61.3617
+offset_bottom = 54.4157
+scale = Vector2(0.097, 0.4)
+texture = ExtResource("4_aai40")
+
+[node name="KillsLabel" type="Label" parent="Panel3"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 10.7234
+offset_top = 2.53491
+offset_right = 141.723
+offset_bottom = 42.5349
+scale = Vector2(0.0895605, 0.347056)
+text = "50"
+label_settings = SubResource("LabelSettings_7bv0g")
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 161
+
+[node name="Panel2" type="Panel" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -154.0
+offset_top = 10.0
+offset_right = -128.0
+offset_bottom = 36.0
+grow_horizontal = 0
+scale = Vector2(5.60906, 1.55593)
+theme_override_styles/panel = SubResource("StyleBoxTexture_dxrco")
+
+[node name="GoldLabel" type="Label" parent="Panel2"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 10.7234
+offset_top = 2.53491
+offset_right = 141.723
+offset_bottom = 42.5349
+scale = Vector2(0.0895605, 0.347056)
+text = "999999"
+label_settings = SubResource("LabelSettings_7bv0g")
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 161
+
+[node name="GoldText" type="TextureRect" parent="Panel2"]
+layout_mode = 0
+offset_left = 4.83432
+offset_top = 1.26746
+offset_right = 52.8343
+offset_bottom = 49.2675
+scale = Vector2(0.118731, 0.336627)
+texture = SubResource("AtlasTexture_eru6n")
