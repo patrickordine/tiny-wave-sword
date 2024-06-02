@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bbchfg1uv3137"]
+[gd_scene load_steps=15 format=3 uid="uid://bbchfg1uv3137"]
 
 [ext_resource type="Texture2D" uid="uid://dogwmmxqd0wm3" path="res://addons/Tiny Swords (Update 010)/UI/Banners/Banner_Horizontal.png" id="1_6g47q"]
 [ext_resource type="Script" path="res://scripts/game_ui.gd" id="1_vj27e"]
@@ -39,6 +39,20 @@ font_color = Color(0.00184107, 0.00184107, 0.00184107, 1)
 [sub_resource type="AtlasTexture" id="AtlasTexture_eru6n"]
 atlas = ExtResource("4_gls3y")
 region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bxy57"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbw8t"]
+bg_color = Color(0.793986, 0.191364, 0.212801, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_vj27e")
@@ -163,3 +177,15 @@ offset_right = 52.8343
 offset_bottom = 49.2675
 scale = Vector2(0.118731, 0.336627)
 texture = SubResource("AtlasTexture_eru6n")
+
+[node name="HealthProgressBar" type="ProgressBar" parent="."]
+visible = false
+offset_left = 29.0
+offset_top = 16.0
+offset_right = 115.0
+offset_bottom = 27.0
+theme_override_styles/background = SubResource("StyleBoxFlat_bxy57")
+theme_override_styles/fill = SubResource("StyleBoxFlat_lbw8t")
+value = 20.0
+rounded = true
+show_percentage = false

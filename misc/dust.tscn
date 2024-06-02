@@ -20,15 +20,15 @@ curve = SubResource("Curve_rkkok")
 particle_flag_disable_z = true
 emission_shape = 1
 emission_sphere_radius = 10.0
-angle_min = 720.0
-angle_max = 720.0
 gravity = Vector3(0, 98, 0)
 scale_curve = SubResource("CurveTexture_yniv8")
 color_ramp = SubResource("GradientTexture1D_y5fek")
 turbulence_enabled = true
 
 [node name="Dust" type="GPUParticles2D"]
+modulate = Color(0, 0.290196, 0, 1)
 show_behind_parent = true
 amount = 10
 process_material = SubResource("ParticleProcessMaterial_7d8gs")
 texture = ExtResource("1_f65d2")
+trail_enabled = true

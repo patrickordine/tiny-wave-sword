@@ -5,13 +5,20 @@ var player: Player
 var player_position: Vector2
 var player_score: int = 0
 var is_game_over: bool = false
+var health: int = 100
+var max_health: int = 100
+#@onready var health_progress_bar: ProgressBar = $HealthProgressBar
+
+
 
 var gameTime: float = 0.0
 var gameTime_string: String
 var meat_counter: int = 0
 var gold_counter: int = 0
 
+
 func _process(delta: float):
+
 	gameTime += delta
 	var gameTime_seconds : int = floori(gameTime)
 	var seconds: int = gameTime_seconds % 60

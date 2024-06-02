@@ -8,6 +8,8 @@
 [ext_resource type="Script" path="res://scripts/follow_player.gd" id="4_mdpke"]
 [ext_resource type="PackedScene" uid="uid://dopif0anxti6m" path="res://misc/dust.tscn" id="5_n84g0"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1fib4"]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_bfeoe"]
 atlas = ExtResource("3_64fl4")
 region = Rect2(0, 192, 192, 192)
@@ -58,8 +60,6 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1fib4"]
-
 [node name="Goblin" type="CharacterBody2D" groups=["enemies"]]
 scale = Vector2(1.44, 1.44)
 motion_mode = 1
@@ -70,21 +70,26 @@ drop_chance = 0.2
 drop_itens = Array[PackedScene]([ExtResource("3_44wlv"), ExtResource("4_gh8sv")])
 drop_chances = Array[float]([0.8, 0.2])
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_26eoy")
-autoplay = "default"
-frame_progress = 0.293991
+[node name="Node" type="Node" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 22.2222)
 scale = Vector2(1.60886, 0.959579)
 shape = SubResource("CapsuleShape2D_1fib4")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_26eoy")
+autoplay = "default"
+frame_progress = 0.293991
+
 [node name="FollowPlayer" type="Node" parent="."]
 script = ExtResource("4_mdpke")
 speed = 75.0
 
+[node name="DamageDigitMarker" type="Marker2D" parent="."]
+scale = Vector2(1, 1)
+
 [node name="Dust" parent="." instance=ExtResource("5_n84g0")]
 position = Vector2(0, 25.6944)
-
-[node name="DamageDigitMarker" type="Marker2D" parent="."]
+scale = Vector2(1, 1)

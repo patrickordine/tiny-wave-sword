@@ -3,7 +3,7 @@ extends Node
 @export var speed: float = 100.0
 var enemy: Enemy
 var sprite_2d: AnimatedSprite2D 
-@onready var dust: GPUParticles2D = get_node("Dust")
+
 
 func _ready():
 	enemy = get_parent() as Enemy
@@ -15,10 +15,7 @@ func _physics_process(delta: float) -> void:
 	var player_position = GameManager.player_position
 	var difference = player_position - enemy.position
 	var direction = difference.normalized()
-	if dust != null:
-		dust.emitting = true
-	#else:
-		#print("Erro: Dust não foi encontrado")
+
 
 		
 	enemy.velocity = direction * speed

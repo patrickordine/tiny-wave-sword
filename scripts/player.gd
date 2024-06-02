@@ -11,8 +11,8 @@ extends CharacterBody2D
 @export_category("Status Player")
 @export var speed = 300.0
 @export var swordDamage: int = 2
-@export var health: int = 100
-@export var max_health: int = 100
+#@export var health: int = 100
+#@export var max_health: int = 100
 @export_range(0,1) var slide_factor = 0.5
 @export_category("Ritual")
 @export var ritual_damage: int= 1
@@ -49,8 +49,8 @@ func _process(delta: float)-> void:
 	update_ritual(delta)
 	if(dash_cooldown > 0):
 		dash_cooldown -= delta
-	health_progress_bar.max_value = max_health
-	health_progress_bar.value = health
+	health_progress_bar.max_value = GameManager.max_health
+	health_progress_bar.value = GameManager.health
 
 func playerActions()->void:
 	if Input.is_action_just_pressed("attack"):
@@ -136,16 +136,16 @@ func flipH() -> void:
 		sprite_2d.flip_h = true
 
 func damage(amount: int)-> void:
-	if health<=0: return
-	health -= amount
-	print("Damage: ", amount, " Health: ", health)
+	if GameManager.health<=0: return
+	GameManager.health -= amount
+	print("Damage: ", amount, " Health: ", GameManager.health)
 	#HIT COLOR
 	modulate = Color.RED
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN)
 	tween.set_trans(Tween.TRANS_QUINT)
 	tween.tween_property(self, "modulate", Color.WHITE, 0.3)
-	if (health <= 0):
+	if (GameManager.health <= 0):
 		die()
 
 func die()-> void:
@@ -173,10 +173,10 @@ func update_hitbox_detection(delta: float) ->void:
 			damage(damage_amount)
 
 func heal(amount: int) ->int:
-	health += amount
-	if health > max_health:
-		health = max_health
-	return health
+	GameManager.health += amount
+	if GameManager.health > GameManager.max_health:
+		GameManager.health = GameManager.max_health
+	return GameManager.health
 
 func update_ritual(delta: float)-> void:
 	ritual_cooldown -= delta
